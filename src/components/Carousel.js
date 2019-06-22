@@ -590,7 +590,9 @@ class Carousel extends Component {
         }
 
         return (
-            <ul className="control-dots">
+            <ul
+                className={`${this.props.showIndicatorNumber ? 'control-dots control-dots-numbered' : 'control-dots'}`}
+            >
                 {Children.map(this.props.children, (item, index) => {
                     return <li
                         className={klass.DOT(index === this.state.selectedItem)}
