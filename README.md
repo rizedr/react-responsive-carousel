@@ -1,5 +1,6 @@
-# React Responsive Carousel
+# React Responsive Carousel (Forked)
 
+Forked version of [`react-responsive-router`](https://github.com/leandrowd/react-responsive-carousel.git) to be able to display the slide numbers in indicators -- adds a `showIndicatorNumber` prop to the `Carousel` component.
 
 # Help wanted
 Things here are running very slowly as I have a lot of other stuff to take care at the moment so please don't be upset if I don't answer your question or if a PR sits unreviewed for a few days or weeks. Anyone interested in helping it move faster can help by submitting or reviewing PR's and answering each other's questions. (https://github.com/leandrowd/react-responsive-carousel/issues/160)
