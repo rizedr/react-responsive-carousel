@@ -20,6 +20,7 @@ class Carousel extends Component {
         showArrows: PropTypes.bool,
         showStatus: PropTypes.bool,
         showIndicators: PropTypes.bool,
+        showIndicatorNumber: PropTypes.bool,
         infiniteLoop: PropTypes.bool,
         showThumbs: PropTypes.bool,
         thumbWidth: PropTypes.number,
@@ -46,6 +47,7 @@ class Carousel extends Component {
 
     static defaultProps = {
         showIndicators: true,
+        showIndicatorNumber: false,
         showArrows: true,
         showStatus:true,
         showThumbs:true,
@@ -421,7 +423,7 @@ class Carousel extends Component {
     }
 
     setPosition = (position, forceReflow) => {
-        const list = ReactDOM.findDOMNode(this.listRef);        
+        const list = ReactDOM.findDOMNode(this.listRef);
         [
             'WebkitTransform',
             'MozTransform',
@@ -450,7 +452,7 @@ class Carousel extends Component {
         this.moveTo(this.state.selectedItem + (typeof positions === 'number' ? positions : 1), fromSwipe);
     }
 
-    moveTo = (position, fromSwipe) => {        
+    moveTo = (position, fromSwipe) => {
         const lastPosition = Children.count(this.props.children) - 1;
         const needClonedSlide = this.props.infiniteLoop && !fromSwipe && (position < 0 || position > lastPosition);
         const oldPosition = position;
@@ -590,7 +592,14 @@ class Carousel extends Component {
         return (
             <ul className="control-dots">
                 {Children.map(this.props.children, (item, index) => {
-                    return <li className={klass.DOT(index === this.state.selectedItem)} onClick={this.changeItem} onKeyDown={this.changeItem} value={index} key={index} role='button' tabIndex={0} />;
+                    return <li
+                        className={klass.DOT(index === this.state.selectedItem)}
+                        onClick={this.changeItem}
+                        onKeyDown={this.changeItem}
+                        value={index} key={index} role='button' tabIndex={0}
+                    >
+                        { this.props.showIndicatorNumber ? index + 1 : null }
+                    </li>
                 })}
             </ul>
         );
@@ -686,7 +695,7 @@ class Carousel extends Component {
                 containerStyles.height = itemHeight || 'auto';
             }
 
-        } else {            
+        } else {
             swiperProps.onSwipeUp = this.props.verticalSwipe === 'natural' ? this.onSwipeBackwards : this.onSwipeForward;
             swiperProps.onSwipeDown = this.props.verticalSwipe === 'natural' ? this.onSwipeForward : this.onSwipeBackwards;
             swiperProps.style.height = this.state.itemSize;

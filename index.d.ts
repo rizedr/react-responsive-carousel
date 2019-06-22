@@ -17,6 +17,7 @@ export interface CarouselProps {
     showArrows?: boolean;
     showStatus?: boolean;
     showIndicators?: boolean;
+    showIndicatorNumber?: boolean;
     showThumbs?: boolean;
     infiniteLoop?: boolean;
     selectedItem?: number;

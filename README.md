@@ -92,6 +92,7 @@ ReactDOM.render(<DemoCarousel />, document.querySelector('.demo-carousel'));
 | showArrows            | `boolean`     | `true` | show prev and next arrows |
 | showStatus            | `boolean`     | `true` | show index of the current item. i.e: (1/8) |
 | showIndicators        | `boolean`     | `true` | show little dots at the bottom with links for changing the item |
+| showIndicatorNumber   | `boolean`     | `true` | add in the control dots the number of the slide |
 | showThumbs            | `boolean`     | `true` | show thumbnails of the images |
 | thumbWidth            | `number`      | `undefined` | optionally specify pixel width (as an integer) of a thumbnail (including any padding) to avoid calculating values (helps with server-side renders or page cache issues) |
 | infiniteLoop          | `boolean`     | `false` | infinite loop sliding  |
